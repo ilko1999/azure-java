@@ -1,0 +1,28 @@
+<html>
+<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	  $(document).ready(function(){
+	        $.get("FileList", function( data ) {
+	  
+       		filesArr = data.split(",");
+	        		  
+       		for(i=0 ; i<filesArr.length ; i++)
+       		{
+$("#files").append(
+      "<input type='checkbox' name='file' value='" + filesArr[i]+"'>" + filesArr[i] +"<br>");
+	        	   	}
+  		});      
+     	  });          
+</script>
+</head>
+<body>
+<h2>Hello World!</h2>
+<a href="GenereteZipArchive">Generate ZIP</a>
+
+<form method="get" action="SelectiveZipArchive">
+	    	<div id="files"></div>
+	    	
+  	<input type="submit" value="Генерирай">
+</form>
+</body>
+</html>
